@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd5brlxcojtaw"]
+
+[ext_resource type="Script" path="res://card.gd" id="1_5ityr"]
+[ext_resource type="Texture2D" uid="uid://c0qbry65cnw54" path="res://card-assets/PNG/Cards (large)/card_back.png" id="2_7wj6o"]
+
+[node name="Card" type="Button" node_paths=PackedStringArray("txrect")]
+clip_contents = true
+offset_right = 42.0
+offset_bottom = 60.0
+scale = Vector2(2, 2)
+script = ExtResource("1_5ityr")
+txrect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -11.5
+offset_top = -2.5
+offset_right = 52.5
+offset_bottom = 61.5
+texture = ExtResource("2_7wj6o")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

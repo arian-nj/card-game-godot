@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cro8yfwsp0xy0"]
+
+[ext_resource type="Script" path="res://hokm_2_offlinr_game.gd" id="1_fg7l3"]
+[ext_resource type="Texture2D" uid="uid://c0qbry65cnw54" path="res://card-assets/PNG/Cards (large)/card_back.png" id="2_6aclb"]
+[ext_resource type="Script" path="res://deck.gd" id="3_abbgh"]
+
+[node name="Hokm4offlineGame" type="Node2D" node_paths=PackedStringArray("hand_node", "stack_node")]
+script = ExtResource("1_fg7l3")
+hand_node = NodePath("CanvasLayer/Deck")
+stack_node = NodePath("deck_sprite")
+
+[node name="deck_sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(215, 91)
+scale = Vector2(2, 2)
+texture = ExtResource("2_6aclb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Deck" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -143.0
+offset_right = 216.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_abbgh")
+deck_max_card_size = null
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 129.0
+offset_right = 1.0
+offset_bottom = 160.0
+grow_horizontal = 0
+text = "Reset"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
