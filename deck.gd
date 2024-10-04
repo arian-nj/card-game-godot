@@ -60,7 +60,6 @@ func move_cards(from:int, wait:bool):
 					target_pos,
 					0.05
 				).finished
-				
 	
 	all_cards_sorted = true
 
